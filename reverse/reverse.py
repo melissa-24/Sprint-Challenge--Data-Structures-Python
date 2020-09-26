@@ -39,4 +39,14 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        # Thoughts for layout to cover everything if list is empty I am thinking have it return None and same if there is 1 item.  as these can not be reversed but maybe that is too much. So just if its empty otherwise just reverse. You just wont notice a change if there is 1 items.  Otherwise too  many lines of code
+        if self.head is None:
+            return None
+            # thats the easy part
+        if node.next_node is None:
+            self.head = node
+            return
+        self.reverse_list(node.next_node, None)
+        following = node.next_node
+        following.next_node = node
+        node.next_node = None
